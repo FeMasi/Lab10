@@ -18,9 +18,9 @@ class Model:
         self._graph.clear()
         borders = DAO.getCountryPairs(self._idMap, year)
         self._graph.add_nodes_from(self._countries)
-        #for b in borders:
-        #    self._graph.add_edge(b.c1, b.c2)
-        self._graph.add_edges_from(borders)
+        for b in borders:
+            self._graph.add_edge(b.c1, b.c2)
+        #self._graph.add_edges_from(borders)
 
     def getNumCompConnesse(self):
         return nx.number_connected_components(self._graph)

@@ -31,7 +31,7 @@ class DAO():
         conn = DBConnect.get_connection()
         result = []
         cursor = conn.cursor(dictionary=True)
-        query = """select c.state1ab, c.state2ab 
+        query = """select c.state1no, c.state2no 
                     from  contiguity c
                     where c.year <= %s and c.conttype = 1"""
 
