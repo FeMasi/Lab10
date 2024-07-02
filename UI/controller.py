@@ -9,8 +9,16 @@ class Controller:
         self._model = model
         self._currentCountry =None
 
-    def handleRaggiungibili(self):
-        pass
+    def handleRaggiungibili(self, e):
+        raggiungibili = self._model.getRaggiungibili(self._currentCountry)
+        self._view._txt_result.controls.clear()
+        self._view._txt_result.controls.append(
+            ft.Text(f"Da {self._currentCountry} è possibile raggiungere a piedi {len(raggiungibili)} stati: "))
+        for r in raggiungibili:
+            self._view._txt_result.controls.append(
+                ft.Text(f"{r}"))
+
+        self._view.update_page()
     def handleCalcola(self, e):
         anno = self._view._txtAnno.value
         try:
